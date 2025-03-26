@@ -62,11 +62,11 @@ feature_mappings = {
     "chid_age": {'6-11': 0, '12-23': 1},
     "ANC_visit": {'No': 0, 'Yes': 1},
     "delivered_at_home": {'Home': 1, 'Health facility': 0},
-    "Mcesarean_section_delivery": {'Spontaneous vaginal delivery': 0, 'Cesarean section': 1},
-    "PNC Visit": {'no': 0, 'yes': 1},
-    "Had Diarrhea": {'no': 0, 'yes': 1},
-    "Media Exposure": {'no': 0, 'yes': 1},
-    "Micronutrient Intake Status": {'no': 0, 'yes': 1}
+    "cesarean_section_delivery": {'Spontaneous vaginal delivery': 0, 'Cesarean section': 1},
+    "PNC_visit": {'no': 0, 'yes': 1},
+    "Had_diarrhea": {'no': 0, 'yes': 1},
+    "media_exposure": {'no': 0, 'yes': 1},
+    "Micronutrient_intakestatus": {'no': 0, 'yes': 1}
 }
 
 # **Convert categorical inputs to numerical values**
