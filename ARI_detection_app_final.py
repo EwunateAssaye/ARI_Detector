@@ -83,10 +83,12 @@ input_df = input_df.apply(pd.to_numeric, errors='coerce')
 input_df["region"] = region
 input_df["religion"] = religion
 input_df = pd.get_dummies(input_df, columns=["region", "religion"], drop_first=False)
+input_df.columns = input_df.columns.str.lower().str.replace(' ','_')
 
 
 # Assigning o if there are any missing features 
 missing_features = set(ML_model.feature_names_in_) - set(input_df.columns)
+#print(missing_features)
 for feature in missing_features:
     input_df[feature] = 0  # or some default value
     
@@ -102,4 +104,4 @@ if st.button("Submit"):
 
 print("Model expected features:", ML_model.feature_names_in_)
 print("Input dataframe features:", input_df.columns)
-print("Input dataframe types:\n", input_df.dtypes)
+#print("Input dataframe types:\n", input_df.dtypes)
