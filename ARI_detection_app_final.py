@@ -15,6 +15,7 @@ st.set_page_config(layout="wide")
 
 # Load the trained model
 ML_model = joblib.load("random_forest_model.pkl",mmap_mode=None)
+expected_columns = joblib.load("column_order.pkl")
 
 # App title
 st.title("Cough Presence Prediction")
@@ -86,9 +87,16 @@ input_df = pd.get_dummies(input_df, columns=["region", "religion"], drop_first=F
 input_df.columns = input_df.columns.str.lower().str.replace(' ','_')
 
 
+# Reorder columns to match training data
+for col in expected_columns:
+    if col not in input_df.columns:
+        input_df[col] = 0  # Add missing columns with 0
+
+input_df = input_df[expected_columns]  # Reorder columns
+
 # Assigning o if there are any missing features 
 missing_features = set(ML_model.feature_names_in_) - set(input_df.columns)
-#print(missing_features)
+print(missing_features)
 for feature in missing_features:
     input_df[feature] = 0  # or some default value
     
@@ -102,6 +110,6 @@ if st.button("Submit"):
 
 
 
-print("Model expected features:", ML_model.feature_names_in_)
-print("Input dataframe features:", input_df.columns)
+#print("Model expected features:", ML_model.feature_names_in_)
+#print("Input dataframe features:", input_df.columns)
 #print("Input dataframe types:\n", input_df.dtypes)
