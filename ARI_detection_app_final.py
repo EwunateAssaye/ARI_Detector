@@ -83,6 +83,7 @@ input_df = input_df.apply(pd.to_numeric, errors='coerce')
 input_df["region"] = region
 input_df["religion"] = religion
 input_df = pd.get_dummies(input_df, columns=["region", "religion"], drop_first=False)
+input_df = input_df.astype(float)
 
 # **Ensure All Model Features Exist**
 expected_features = ML_model.feature_names_in_  # Features expected by the model
@@ -97,5 +98,6 @@ if st.button("Submit"):
 
 
 
-print("Training features:", ML_model.feature_names_in_)  # If using a recent sklearn version
-print("Prediction features:", input_df.columns)
+print("Model expected features:", ML_model.feature_names_in_)
+print("Input dataframe features:", input_df.columns)
+print("Input dataframe types:\n", input_df.dtypes)
