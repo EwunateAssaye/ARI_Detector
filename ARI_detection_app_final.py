@@ -185,12 +185,8 @@ input_df = input_df.astype(float)
 # **Predict & Display Results**
 if st.button("Submit"):
     prediction = ML_model.predict_proba(input_df)
-   st.markdown(
-    f"<div style='font-size:16px; text-align:center; font-weight:500;'>Probability of having cough: {prob:.2%}</div>",
-    unsafe_allow_html=True
-)
-
-
+    st.markdown(f"<div style='font-size:16px; text-align:center; font-weight:500;'>Probability of having cough: {prob:.2%}</div>",
+                unsafe_allow_html=True )
 
 #print("Model expected features:", ML_model.feature_names_in_)
 #print("Input dataframe features:", input_df.columns)
