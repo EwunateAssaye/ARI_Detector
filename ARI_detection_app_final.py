@@ -59,7 +59,8 @@ st.markdown("""
 
 # Title for the app
 # st.title("Welcome, let's predict the cough presence")
-st.markdown("<h3 style='text-align: center; color: black;'>Welcome, let's predict the cough presence</h3>", unsafe_allow_html=True)
+st.markdown("<div style='font-size:20px; font-weight:bold;'>Welcome, let's predict the cough presence</div>", unsafe_allow_html=True)
+# st.markdown("<h3 style='text-align: center; color: black;'>Welcome, let's predict the cough presence</h3>", unsafe_allow_html=True)
 # Organize content in tabs
 tab1, tab2, tab3, tab4 = st.tabs(["Feature Set 1", "Feature Set 2", "Feature Set 3", 
                                   "Feature Set 4"])
