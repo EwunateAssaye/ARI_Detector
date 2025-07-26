@@ -61,6 +61,14 @@ st.markdown("""
 # st.title("Welcome, let's predict the cough presence")
 st.markdown("<div style='font-size:20px; font-weight:bold; text-align:center;'>Welcome, let's predict the cough presence</div>", unsafe_allow_html=True)
 # Organize content in tabs
+st.markdown("""
+    <style>
+    /* Reduce font size of tab labels */
+    .stTabs [data-baseweb="tab"] button {
+        font-size: 14px !important;  /* Adjust size as needed */
+    }
+    </style>
+""", unsafe_allow_html=True)
 tab1, tab2, tab3, tab4 = st.tabs(["Feature Set 1", "Feature Set 2", "Feature Set 3", 
                                   "Feature Set 4"])
 
