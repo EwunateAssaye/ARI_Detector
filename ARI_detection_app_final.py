@@ -185,6 +185,7 @@ input_df = input_df.astype(float)
 # **Predict & Display Results**
 if st.button("Submit"):
     prediction = ML_model.predict_proba(input_df)
+    prob = prediction[0][1]
     st.markdown(f"<div style='font-size:16px; text-align:center; font-weight:500;'>Probability of having cough: {prob:.2%}</div>",
                 unsafe_allow_html=True )
 
